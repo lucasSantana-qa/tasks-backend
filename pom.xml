@@ -79,7 +79,7 @@
 					</execution>
 					<execution>
 						<id>report</id>
-						<phase>initialize</phase>
+						<phase>test</phase>
 						<goals>
 							<goal>report</goal>
 						</goals>
