@@ -37,6 +37,16 @@ public class TaskControllerTest {
     }
 
     @Test
+    public void naoDeveSalvarTaskComDescricaoNull() {
+        try {
+            controller.save(setTask(null, LocalDate.now()));
+            Assert.fail("Não deveria chegar nesse ponto");
+        } catch (ValidationException e) {
+            Assert.assertEquals("Fill the task description", e.getMessage());
+        }
+    }
+
+    @Test
     public void naoDeveSalvarTaskSemData() {
         try {
             controller.save(setTask("Descrição", null));
@@ -50,6 +60,15 @@ public class TaskControllerTest {
     public void naoDeveSalvarTaskComDataPassada() {
         try {
             controller.save(setTask("Descrição", LocalDate.now().minusDays(1)));
+        } catch (ValidationException e) {
+            Assert.assertEquals("Due date must not be in past", e.getMessage());
+        }
+    }
+
+    @Test
+    public void naoDeveSalvarTaskComDataFutura() {
+        try {
+            controller.save(setTask("Descrição", LocalDate.now().plusDays(1)));
         } catch (ValidationException e) {
             Assert.assertEquals("Due date must not be in past", e.getMessage());
         }
