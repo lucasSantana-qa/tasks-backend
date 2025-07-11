@@ -54,7 +54,6 @@
 	</dependencies>
 
 	<build>
-		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<finalName>tasks-backend</finalName>
 		<plugins>
 			<plugin>
