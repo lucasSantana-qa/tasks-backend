@@ -46,5 +46,12 @@ pipeline {
                 }
             }
         }
+        stage('Functional testes Frontend') {
+            dir('functional-test') {
+                git https://github.com/lucasSantana-qa/tasks-functional-tests
+                bat 'mvn test'
+            }
+        }
     }
 }
+
