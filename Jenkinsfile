@@ -38,7 +38,9 @@ pipeline {
             }
         }
         stage('Deploy Frontend') {
+            steps {
                 deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'TOMCAT_CREDENTIALS', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', onFailure: false, war: 'target/tasks.war'            
+            }
         }
     }
 }
