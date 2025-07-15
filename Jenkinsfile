@@ -1,14 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Build backend') {
+        stage('Unit tests Backend') {
             steps {
-                bat 'mvn clean verify -DskipTests=true'
-            }
-        }
-        stage('Unit tests') {
-            steps{
-                bat 'mvn test'
+                bat 'mvn clean verify'
             }
         }
         stage('Sonar Analysis') {
