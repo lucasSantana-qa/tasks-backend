@@ -49,7 +49,7 @@ pipeline {
         stage('Functional testes Frontend') {
             steps {
                 dir('functional-test') {
-                    git https://github.com/lucasSantana-qa/tasks-functional-tests
+                    git 'https://github.com/lucasSantana-qa/tasks-functional-tests'
                     bat 'mvn test'
                 }
             }
