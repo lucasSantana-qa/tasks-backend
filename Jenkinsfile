@@ -73,10 +73,10 @@ pipeline {
         always {
             junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml, api-test/target/surefire-reports/*.xml, functional-test/target/surefire-reports/*.xml, functional-test/target/failsafe-reports/*.xml'
         }
-        unsuccessful {
+        onFailure {
             emailext attachLog: true, body: 'See the attached log below', subject: 'Build $BUILD_NUMBER has failed', to: 'jenkinsqualitybuild@gmail.com'
         }
-        fixed {
+        successed {
             emailext attachLog: true, body: 'See the attached log below', subject: 'Build successed', to: 'jenkinsqualitybuild@gmail.com'
         }
     }
