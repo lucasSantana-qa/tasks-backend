@@ -77,7 +77,7 @@ pipeline {
             emailext attachLog: true, body: 'See the attached log below', subject: 'Build $BUILD_NUMBER has failed', to: 'jenkinsqualitybuild@gmail.com'
         }
         fixed {
-            emailext attachLog: true, body: 'See the attached log below', subject: 'Builded successed', to: 'jenkinsqualitybuild@gmail.com'
+            emailext attachLog: true, body: 'See the attached log below', subject: 'Build successed', to: 'jenkinsqualitybuild@gmail.com'
         }
     }
 }
